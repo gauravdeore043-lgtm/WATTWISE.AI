@@ -1,0 +1,348 @@
+{
+  "data": {
+    "hours": 34589,
+    "missing_hours": 405,
+    "start": "2006-12-16 17:00:00",
+    "end": "2010-11-26 21:00:00",
+    "split": {
+      "train_end": "2009-12-31 23:00",
+      "calibration": [
+        "2010-01-01",
+        "2010-06-30 23:00"
+      ],
+      "test_start": "2010-07-01"
+    }
+  },
+  "forecast": {
+    "lightgbm_params": {
+      "num_leaves": 31,
+      "n_estimators": 600,
+      "min_child_samples": 60,
+      "learning_rate": 0.03
+    },
+    "day_ahead_test": {
+      "WattWise LightGBM (quantile P50)": {
+        "MAE": 0.38619174536441436,
+        "RMSE": 0.5796090878288419,
+        "MAPE_%": 50.07925087643539,
+        "WAPE_%": 41.67582343147744,
+        "n": 3324
+      },
+      "Ridge regression (same features)": {
+        "MAE": 0.4317043444159222,
+        "RMSE": 0.5893172175031034,
+        "MAPE_%": 66.31946912306131,
+        "WAPE_%": 46.587308632147526,
+        "n": 3324
+      },
+      "Persistence (same hour yesterday)": {
+        "MAE": 0.48716579419051226,
+        "RMSE": 0.7448097040700359,
+        "MAPE_%": 63.85363781260451,
+        "WAPE_%": 52.572422544612195,
+        "n": 3324
+      },
+      "Seasonal naive (same hour last week)": {
+        "MAE": 0.5529969571558027,
+        "RMSE": 0.8060349250300948,
+        "MAPE_%": 80.28104143424873,
+        "WAPE_%": 60.3447460150288,
+        "n": 3123
+      },
+      "4-week same-hour median": {
+        "MAE": 0.49180422366590126,
+        "RMSE": 0.6987724227974202,
+        "MAPE_%": 69.0463387339512,
+        "WAPE_%": 53.07297795558624,
+        "n": 3324
+      }
+    },
+    "day_ahead_interval_test": {
+      "coverage_80_%": 79.30204572803851,
+      "mean_width_kWh": 1.2210480933188286,
+      "pinball_avg": 0.12287368802655717
+    },
+    "daily_total_test": {
+      "WattWise": {
+        "MAE": 4.024630643109232,
+        "RMSE": 5.788311367042316,
+        "MAPE_%": 17.705178213455522,
+        "WAPE_%": 18.109428179531424,
+        "n": 137
+      },
+      "Seasonal naive": {
+        "MAE": 7.295800878954562,
+        "RMSE": 10.09845496554938,
+        "MAPE_%": 34.01830831596968,
+        "WAPE_%": 32.828548442278496,
+        "n": 137
+      }
+    },
+    "per_lead_day_test": [
+      {
+        "lead_day": 1,
+        "MAE": 0.37702681959702294,
+        "WAPE_%": 41.46032032893487,
+        "naive_week_MAE": 0.5538587827685311,
+        "coverage_80_%": 79.41473259334006,
+        "width_kWh": 1.2165296968534176,
+        "margin_norm": 0.010891685652696083,
+        "daily_total_coverage_80_%": 78.86178861788618,
+        "rolling_coverage_80_%": 79.07837201479987,
+        "rolling_width_kWh": 1.2192165411098315
+      },
+      {
+        "lead_day": 2,
+        "MAE": 0.383706937394251,
+        "WAPE_%": 42.0109549484848,
+        "naive_week_MAE": 0.5552876498918755,
+        "coverage_80_%": 75.4723462727585,
+        "width_kWh": 1.2150545495329017,
+        "margin_norm": 0.02363084719257963,
+        "daily_total_coverage_80_%": 74.3801652892562,
+        "rolling_coverage_80_%": 77.98007557540365,
+        "rolling_width_kWh": 1.2413608082349679
+      },
+      {
+        "lead_day": 3,
+        "MAE": 0.3924932230746791,
+        "WAPE_%": 43.2854306163401,
+        "naive_week_MAE": 0.557838886057575,
+        "coverage_80_%": 75.06112469437653,
+        "width_kWh": 1.219947707089075,
+        "margin_norm": 0.03518415278864035,
+        "daily_total_coverage_80_%": 72.26890756302521,
+        "rolling_coverage_80_%": 78.30946559552918,
+        "rolling_width_kWh": 1.2485721648710353
+      },
+      {
+        "lead_day": 4,
+        "MAE": 0.3989831396012168,
+        "WAPE_%": 43.60367534318924,
+        "naive_week_MAE": 0.5589996938585572,
+        "coverage_80_%": 74.84098939929329,
+        "width_kWh": 1.2238190252284376,
+        "margin_norm": 0.042532529760724275,
+        "daily_total_coverage_80_%": 70.94017094017094,
+        "rolling_coverage_80_%": 78.26855123674912,
+        "rolling_width_kWh": 1.256791698605684
+      },
+      {
+        "lead_day": 5,
+        "MAE": 0.3975449886157149,
+        "WAPE_%": 43.44739605502493,
+        "naive_week_MAE": 0.550080853898671,
+        "coverage_80_%": 74.79845776375745,
+        "width_kWh": 1.2266989362626979,
+        "margin_norm": 0.04496100830087688,
+        "daily_total_coverage_80_%": 72.03389830508475,
+        "rolling_coverage_80_%": 77.84787942516648,
+        "rolling_width_kWh": 1.2602672607095395
+      },
+      {
+        "lead_day": 6,
+        "MAE": 0.3989474012095931,
+        "WAPE_%": 44.23549515574002,
+        "naive_week_MAE": 0.5450639986780339,
+        "coverage_80_%": 74.61139896373057,
+        "width_kWh": 1.2255573674701887,
+        "margin_norm": 0.04848198351615661,
+        "daily_total_coverage_80_%": 70.83333333333334,
+        "rolling_coverage_80_%": 78.41105354058722,
+        "rolling_width_kWh": 1.270265533671496
+      },
+      {
+        "lead_day": 7,
+        "MAE": 0.4079305864663515,
+        "WAPE_%": 45.20950981422484,
+        "naive_week_MAE": 0.5467442492158575,
+        "coverage_80_%": 73.85146804835924,
+        "width_kWh": 1.220542713714931,
+        "margin_norm": 0.05210215322465223,
+        "daily_total_coverage_80_%": 67.5,
+        "rolling_coverage_80_%": 78.65284974093264,
+        "rolling_width_kWh": 1.2725452323429407
+      }
+    ],
+    "conformal_margins_by_lead": {
+      "1": 0.010891685652696083,
+      "2": 0.02363084719257963,
+      "3": 0.03518415278864035,
+      "4": 0.042532529760724275,
+      "5": 0.04496100830087688,
+      "6": 0.04848198351615661,
+      "7": 0.05210215322465223
+    },
+    "feature_importance_top10": {
+      "same_hour_7d_mean": 0.2444,
+      "hour": 0.1514,
+      "same_hour_4w_median": 0.1267,
+      "last_obs": 0.0527,
+      "prev_day_mean": 0.0518,
+      "doy_cos": 0.0431,
+      "prev_day_std": 0.0379,
+      "prev_day_min": 0.0356,
+      "prev_day_max": 0.031,
+      "lag24": 0.0287
+    },
+    "tuning": [
+      {
+        "num_leaves": 31,
+        "n_estimators": 600,
+        "min_child_samples": 60,
+        "cal_MAE": 0.4351493959230911
+      },
+      {
+        "num_leaves": 31,
+        "n_estimators": 1000,
+        "min_child_samples": 60,
+        "cal_MAE": 0.43542396288966173
+      },
+      {
+        "num_leaves": 63,
+        "n_estimators": 300,
+        "min_child_samples": 20,
+        "cal_MAE": 0.43565388255216164
+      },
+      {
+        "num_leaves": 63,
+        "n_estimators": 300,
+        "min_child_samples": 60,
+        "cal_MAE": 0.43576835112470325
+      },
+      {
+        "num_leaves": 31,
+        "n_estimators": 300,
+        "min_child_samples": 60,
+        "cal_MAE": 0.435989751376801
+      }
+    ]
+  },
+  "anomaly": {
+    "thresholds": {
+      "z": 2.5,
+      "p": 0.98,
+      "z_strong": 99.0,
+      "z_sustained": 3,
+      "z_base": 3,
+      "base_min_kw": 0.1
+    },
+    "calibration_score": {
+      "precision": 0.7160000000000001,
+      "recall": 0.7786666666666666,
+      "f1": 0.7453333333333333,
+      "event_recall": 0.7706666666666667,
+      "false_alarm_events_per_week": 0.96,
+      "alert_rate_on_normal_peak_hours_%": 18.7,
+      "event_recall_by_type": {
+        "appliance_left_on_overnight": 1.0,
+        "daytime_while_away": 0.2916666666666667,
+        "high_power_spike": 0.8333333333333334,
+        "standby_creep": 0.9583333333333334
+      }
+    },
+    "baseline_settings": {
+      "WattWise ensemble": {
+        "z": 2.5,
+        "p": 0.98,
+        "z_strong": 99.0,
+        "z_sustained": 3,
+        "z_base": 3,
+        "base_min_kw": 0.1
+      },
+      "Autoencoder only": 0.99,
+      "Contextual residual only": 3.5,
+      "Isolation Forest only": 0.98,
+      "Naive: global high-usage threshold": 99,
+      "Naive: hour-of-day threshold": 98
+    },
+    "test": {
+      "WattWise ensemble": {
+        "precision": 0.7912000000000001,
+        "recall": 0.797,
+        "f1": 0.7936,
+        "event_recall": 0.8874000000000001,
+        "false_alarm_events_per_week": 1.86,
+        "alert_rate_on_normal_peak_hours_%": 27.02,
+        "event_recall_by_type": {
+          "appliance_left_on_overnight": 0.975,
+          "daytime_while_away": 0.725,
+          "high_power_spike": 0.85,
+          "standby_creep": 1.0
+        }
+      },
+      "Autoencoder only": {
+        "precision": 0.6026,
+        "recall": 0.0496,
+        "f1": 0.09120000000000002,
+        "event_recall": 0.4564000000000001,
+        "false_alarm_events_per_week": 0.8999999999999998,
+        "alert_rate_on_normal_peak_hours_%": 5.5600000000000005,
+        "event_recall_by_type": {
+          "appliance_left_on_overnight": 0.65,
+          "daytime_while_away": 0.05,
+          "high_power_spike": 0.825,
+          "standby_creep": 0.3
+        }
+      },
+      "Contextual residual only": {
+        "precision": 0.5190000000000001,
+        "recall": 0.22640000000000002,
+        "f1": 0.31520000000000004,
+        "event_recall": 0.9252,
+        "false_alarm_events_per_week": 4.502000000000001,
+        "alert_rate_on_normal_peak_hours_%": 28.82,
+        "event_recall_by_type": {
+          "appliance_left_on_overnight": 0.95,
+          "daytime_while_away": 0.875,
+          "high_power_spike": 0.875,
+          "standby_creep": 1.0
+        }
+      },
+      "Isolation Forest only": {
+        "precision": 0.5322000000000001,
+        "recall": 0.11059999999999999,
+        "f1": 0.18319999999999997,
+        "event_recall": 0.6374,
+        "false_alarm_events_per_week": 1.5420000000000003,
+        "alert_rate_on_normal_peak_hours_%": 12.419999999999998,
+        "event_recall_by_type": {
+          "appliance_left_on_overnight": 0.95,
+          "daytime_while_away": 0.275,
+          "high_power_spike": 0.5,
+          "standby_creep": 0.825
+        }
+      },
+      "Naive: global high-usage threshold": {
+        "precision": 0.4064,
+        "recall": 0.0056,
+        "f1": 0.011,
+        "event_recall": 0.11240000000000001,
+        "false_alarm_events_per_week": 0.21000000000000002,
+        "alert_rate_on_normal_peak_hours_%": 3.9,
+        "event_recall_by_type": {
+          "appliance_left_on_overnight": 0.075,
+          "daytime_while_away": 0.05,
+          "high_power_spike": 0.15,
+          "standby_creep": 0.175
+        }
+      },
+      "Naive: hour-of-day threshold": {
+        "precision": 0.6050000000000001,
+        "recall": 0.0344,
+        "f1": 0.0648,
+        "event_recall": 0.4314,
+        "false_alarm_events_per_week": 0.7100000000000001,
+        "alert_rate_on_normal_peak_hours_%": 8.86,
+        "event_recall_by_type": {
+          "appliance_left_on_overnight": 0.625,
+          "daytime_while_away": 0.15,
+          "high_power_spike": 0.525,
+          "standby_creep": 0.425
+        }
+      }
+    },
+    "false_alarm_budget_per_week": 1.0,
+    "autoencoder_days_trained": 1104
+  }
+}
